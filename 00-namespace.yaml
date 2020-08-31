@@ -1,0 +1,17 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spring-boot
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        role: spring-boot
+    spec:
+      containers:
+      - name: spring-boot
+        image: hfierroprog/doservice:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 1344
